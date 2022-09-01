@@ -1,12 +1,13 @@
 import React from 'react';
 
-import {SafeAreaView, StatusBar, Text} from 'react-native';
+import {SafeAreaView, StatusBar} from 'react-native';
+import {AuthenticationScreen} from './presentation/AuthenticationScreen';
 
 export function App() {
   return (
     <SafeAreaView>
       <StatusBar barStyle={'dark-content'} />
-      <Text>Crazy app</Text>
+      <AuthenticationScreen />
     </SafeAreaView>
   );
 }
