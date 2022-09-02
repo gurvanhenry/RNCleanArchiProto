@@ -6,14 +6,12 @@
 
 import React from 'react';
 
-import {UserInfo} from '../domain/entity/UserInfo';
 import {Authentication} from '../domain/use-case/Authentication';
+import {AppContext} from './AppContext';
 
 export function useAuthentication() {
-  const [isConnected, setIsConnected] = React.useState<boolean>(false);
-  const [userInfo, setUserInfo] = React.useState<UserInfo | undefined>(
-    undefined,
-  );
+  const {setIsConnected, setUserInfo} = React.useContext(AppContext);
+
   function trySignIn(login: string) {
     const authentication = new Authentication();
     const signInResult = authentication.signIn(login);
@@ -26,5 +24,5 @@ export function useAuthentication() {
     }
   }
 
-  return {isConnected, userInfo, trySignIn};
+  return {trySignIn};
 }

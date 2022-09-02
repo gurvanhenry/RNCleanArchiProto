@@ -5,31 +5,17 @@
 
 import React from 'react';
 
-import {View, Text, TextInput, Button} from 'react-native';
-import {useAuthentication} from './useAuthentication';
+import {View, Text} from 'react-native';
+import {AppContext} from './AppContext';
+import {SignInForm} from './SignInForm';
 
 export function AuthenticationScreen() {
-  const [login, setLogin] = React.useState('matt');
-  const {isConnected, userInfo, trySignIn} = useAuthentication();
+  const {isConnected} = React.useContext(AppContext);
   return (
     <View>
       <Text>Crazy app : auth screen</Text>
-      <Text>Is connected: {isConnected ? 'yes' : 'no'}</Text>
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        <Text>user:</Text>
-        <TextInput
-          value={login}
-          onChangeText={setLogin}
-          style={{borderWidth: 1, margin: 10, flex: 1}}
-        />
-      </View>
-      {userInfo && (
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Text>userInfo:</Text>
-          <Text>{JSON.stringify(userInfo)}</Text>
-        </View>
-      )}
-      <Button title="SignIn" onPress={() => trySignIn(login)} />
+      <Text>isConnected: {isConnected ? 'yes' : 'no'}</Text>
+      <SignInForm />
     </View>
   );
 }
