@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Pressable, StyleProp, StyleSheet, Text, ViewStyle} from 'react-native';
 
-import {Colors} from '~/ui/resource/colors';
+import {Colors} from '~/ui/resources/colors';
 
 export function Button({
   title,

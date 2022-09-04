@@ -10,7 +10,7 @@ import {
 } from '~/domain/authentication/authenticationSlice';
 import {Button} from '~/ui/components/Button';
 import {useDomainDispatch, useDomainSelector} from '~/ui/hook/store';
-import {Colors} from '~/ui/resource/colors';
+import {Colors} from '~/ui/resources/colors';
 
 export function SignInForm() {
   const [login, setLogin] = useState('matt');
