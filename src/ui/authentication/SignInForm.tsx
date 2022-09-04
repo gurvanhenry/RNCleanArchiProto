@@ -1,6 +1,13 @@
 import React, {useState} from 'react';
 
-import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
+import {
+  Button,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 
 import {
   selectIsConnected,
@@ -29,9 +36,15 @@ export function SignInForm() {
         />
       </View>
       {isConnected ? (
-        <Button title="Sign Out 🚪" onPress={() => dispatch(signOut())} />
+        <Pressable style={styles.button} onPress={() => dispatch(signOut())}>
+          <Text>Sign Out 🚪</Text>
+        </Pressable>
       ) : (
-        <Button title="Sign In" onPress={() => dispatch(trySignIn(login))} />
+        <Pressable
+          style={styles.button}
+          onPress={() => dispatch(trySignIn(login))}>
+          <Text>Sign In</Text>
+        </Pressable>
       )}
       <Text>{isConnected ? '🟩YOU ARE IN' : '🟥'}</Text>
       <Text />
@@ -54,5 +67,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     margin: 10,
     flex: 1,
+  },
+  button: {
+    backgroundColor: '#226FF3',
+    alignItems: 'center',
+    borderRadius: 20,
+    padding: 10,
+    margin: 10,
   },
 });
