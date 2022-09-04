@@ -3,20 +3,28 @@
 // il reçoit les données mais ne fait pas de traitement
 // par exemple le fullname est capitalisé avant
 
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import {StyleSheet, Text, View} from 'react-native';
 
-import {useSelector} from 'react-redux';
-
 import {selectIsConnected} from '~/domain/authentication/authenticationSlice';
+import {selectEmoji, setRamdomEmoji} from '~/domain/emoji/emojiSlice';
+import {useReduxDispatch, useReduxSelector} from '~/domain/store';
 
 import {SignInForm} from './SignInForm';
 
 export function AuthenticationScreen() {
-  const isConnected = useSelector(selectIsConnected);
+  const isConnected = useReduxSelector(selectIsConnected);
+  const emoji = useReduxSelector(selectEmoji);
+  const dispatch = useReduxDispatch();
+
+  useEffect(() => {
+    dispatch(setRamdomEmoji());
+  }, [dispatch]);
+
   return (
     <View style={styles.container}>
+      <Text>{emoji}</Text>
       <Text style={styles.title}>Crazy app : auth screen</Text>
       <Text style={styles.isConnected}>
         isConnected: {isConnected ? 'yes' : 'no'}
