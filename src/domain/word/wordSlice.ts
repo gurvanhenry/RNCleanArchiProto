@@ -1,7 +1,5 @@
 import {PayloadAction, createSlice} from '@reduxjs/toolkit';
 
-import {AppDispatch, RootState} from '~/domain/store';
-
 export interface WordState {
   word: string;
 }
@@ -19,11 +17,5 @@ export const wordSlice = createSlice({
     },
   },
 });
-
-export const fetchAndSetWord = () => (dispatch: AppDispatch) => {
-  dispatch(wordSlice.actions.setWord('TODO'));
-};
-
-export const selectWord = (state: RootState) => state.word.word;
 
 export const wordReducer = wordSlice.reducer;

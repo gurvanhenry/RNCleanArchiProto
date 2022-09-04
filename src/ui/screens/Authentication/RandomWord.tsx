@@ -3,6 +3,7 @@ import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
 import {fetchAndSetWord, selectWord} from '~/domain/word';
+import {Button} from '~/ui/components/Button';
 import {useDomainDispatch, useDomainSelector} from '~/ui/hook/store';
 
 export function RandomWord() {
@@ -17,6 +18,7 @@ export function RandomWord() {
     <View style={styles.container}>
       <Text>random word from the internet:</Text>
       <Text>{word}</Text>
+      <Button title="refresh" onPress={() => dispatch(fetchAndSetWord())} />
     </View>
   );
 }
