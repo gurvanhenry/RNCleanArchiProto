@@ -1,12 +1,14 @@
 import {configureStore} from '@reduxjs/toolkit';
 
-import {authenticationReducer} from './authentication/authenticationSlice';
-import {emojiReducer} from './emoji/emojiSlice';
+import {authenticationReducer} from './authentication';
+import {emojiReducer} from './emoji';
+import {wordReducer} from './word';
 
 export const store = configureStore({
   reducer: {
     authentication: authenticationReducer,
     emoji: emojiReducer,
+    word: wordReducer,
   },
 });
 

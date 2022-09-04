@@ -7,10 +7,11 @@ import React, {useEffect} from 'react';
 
 import {StyleSheet, Text, View} from 'react-native';
 
-import {selectIsConnected} from '~/domain/authentication/authenticationSlice.selector';
-import {selectEmoji, setRamdomEmoji} from '~/domain/emoji/emojiSlice';
+import {selectIsConnected} from '~/domain/authentication';
+import {selectEmoji, setRamdomEmoji} from '~/domain/emoji';
 import {useDomainDispatch, useDomainSelector} from '~/ui/hook/store';
 
+import {RandomWord} from './RandomWord';
 import {SignInForm} from './SignInForm';
 
 export function AuthenticationScreen() {
@@ -30,6 +31,7 @@ export function AuthenticationScreen() {
         isConnected: {isConnected ? 'yes' : 'no'}
       </Text>
       <SignInForm />
+      <RandomWord />
     </View>
   );
 }
