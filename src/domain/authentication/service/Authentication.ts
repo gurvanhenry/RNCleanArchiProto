@@ -7,7 +7,7 @@ import {
   apiCallGetAge,
   apiCallGetToken,
   apiCallGetUserFullname,
-} from '~/data/api/api';
+} from '~/data/api/authApi';
 
 import {UserInfo} from '../authenticationSlice';
 

@@ -1,5 +1,5 @@
-import {apiCallGetToken, apiCallGetUserFullname} from './api';
-import {ApiCallGetTokenResponse} from './api.types';
+import {apiCallGetToken, apiCallGetUserFullname} from './authApi';
+import {ApiCallGetTokenResponse} from './authApi.types';
 
 describe('apiCallGetToken', () => {
   it('success - receive token', () => {
