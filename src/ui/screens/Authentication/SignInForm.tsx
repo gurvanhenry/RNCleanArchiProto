@@ -2,7 +2,10 @@ import React, {useState} from 'react';
 
 import {StyleSheet, Text, TextInput, View} from 'react-native';
 
-import {signOut, trySignIn} from '~/domain/authentication/authenticationSlice';
+import {
+  signOut,
+  trySignIn,
+} from '~/domain/authentication/authenticationSlice.actions';
 import {
   selectIsConnected,
   selectUserInfos,

@@ -9,7 +9,7 @@ import {
   apiCallGetUserFullname,
 } from '~/data/api/authApi';
 
-import {UserInfo} from '../authenticationSlice';
+import {UserInfo} from '../authenticationSlice.types';
 
 export class Authentication {
   signIn(login: string): {allowed: boolean; userInfo?: UserInfo} {
