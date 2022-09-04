@@ -1,4 +1,4 @@
-import {View, Text, TextInput, Button} from 'react-native';
+import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
 import {useAuthentication} from './useAuthentication';
 
 import React from 'react';
@@ -6,26 +6,43 @@ import {AppContext} from './AppContext';
 
 export function SignInForm() {
   const [login, setLogin] = React.useState('matt');
-  const {trySignIn} = useAuthentication();
+  const {trySignIn, trySignOut} = useAuthentication();
   const {isConnected, userInfo} = React.useContext(AppContext);
   return (
-    <View>
+    <View style={styles.container}>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <Text>user:</Text>
         <TextInput
           value={login}
           onChangeText={setLogin}
-          style={{borderWidth: 1, margin: 10, flex: 1}}
+          style={styles.textInput}
         />
       </View>
+      {isConnected ? (
+        <Button title="Sign Out 🚪" onPress={() => trySignOut()} />
+      ) : (
+        <Button title="Sign In" onPress={() => trySignIn(login)} />
+      )}
+      <Text>{isConnected ? '🟩YOU ARE IN' : '🟥'}</Text>
+      <Text />
       {userInfo && (
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View>
           <Text>userInfo:</Text>
           <Text>{JSON.stringify(userInfo)}</Text>
         </View>
       )}
-      <Button title="SignIn" onPress={() => trySignIn(login)} />
-      <Text>{isConnected ? 'YOU ARE IN' : ''}</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    width: 300,
+    margin: 30,
+  },
+  textInput: {
+    borderWidth: 1,
+    margin: 10,
+    flex: 1,
+  },
+});

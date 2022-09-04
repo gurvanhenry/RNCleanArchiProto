@@ -24,5 +24,10 @@ export function useAuthentication() {
     }
   }
 
-  return {trySignIn};
+  function trySignOut() {
+    setIsConnected(false);
+    setUserInfo(undefined);
+  }
+
+  return {trySignIn, trySignOut};
 }
