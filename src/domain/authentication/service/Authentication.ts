@@ -8,8 +8,7 @@ import {
   apiCallGetToken,
   apiCallGetUserFullname,
 } from '~/data/api/authApi';
-
-import {UserInfo} from '../authenticationSlice.types';
+import {UserInfo} from '~/domain/authentication/authenticationSlice.types';
 
 export class Authentication {
   signIn(login: string): {allowed: boolean; userInfo?: UserInfo} {

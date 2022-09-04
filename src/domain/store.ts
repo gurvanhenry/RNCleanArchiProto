@@ -1,8 +1,8 @@
 import {configureStore} from '@reduxjs/toolkit';
 
-import {authenticationReducer} from './authentication';
-import {emojiReducer} from './emoji';
-import {wordReducer} from './word';
+import {authenticationReducer} from '~/domain/authentication';
+import {emojiReducer} from '~/domain/emoji';
+import {wordReducer} from '~/domain/word';
 
 export const store = configureStore({
   reducer: {
