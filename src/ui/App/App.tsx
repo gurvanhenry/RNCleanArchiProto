@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
+
 import {AuthenticationScreen} from '../authentication/AuthenticationScreen';
 
 export function App() {

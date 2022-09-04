@@ -5,10 +5,13 @@
 
 import React from 'react';
 
-import {View, Text, StyleSheet} from 'react-native';
-import {SignInForm} from './SignInForm';
+import {StyleSheet, Text, View} from 'react-native';
+
 import {useSelector} from 'react-redux';
-import {selectIsConnected} from '../../domain/authentication/authenticationSlice';
+
+import {selectIsConnected} from '~/domain/authentication/authenticationSlice';
+
+import {SignInForm} from './SignInForm';
 
 export function AuthenticationScreen() {
   const isConnected = useSelector(selectIsConnected);

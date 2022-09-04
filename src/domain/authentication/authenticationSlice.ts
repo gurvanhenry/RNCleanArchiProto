@@ -1,7 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit';
 import type {PayloadAction} from '@reduxjs/toolkit';
+
+import {AppDispatch, RootState} from '~/domain/store';
+
 import {Authentication} from './service/Authentication';
-import {AppDispatch, RootState} from '../store';
 
 export type UserInfo = {
   fullname: string;

@@ -4,10 +4,11 @@
 // fait quelques adaption pour le besoin de notre usage (exemple : capitalize le fullname) (à faire dans le hook de la vue ?)
 
 import {
-  apiCallGetToken,
   apiCallGetAge,
+  apiCallGetToken,
   apiCallGetUserFullname,
-} from '../../../data/api/api';
+} from '~/data/api/api';
+
 import {UserInfo} from '../authenticationSlice';
 
 export class Authentication {
