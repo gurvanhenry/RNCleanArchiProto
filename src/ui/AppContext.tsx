@@ -1,7 +1,7 @@
 // context : equivalent à un redux / action + selecteur
 
 import React from 'react';
-import {UserInfo} from '../domain/entity/UserInfo';
+import {UserInfo} from '../core/domain/entity/UserInfo';
 
 export type AppState = {
   isConnected: boolean;
