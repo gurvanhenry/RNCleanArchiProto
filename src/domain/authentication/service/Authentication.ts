@@ -3,12 +3,12 @@
 // appel des services si besoin (api etc..) (éviter de mettre ses codes technique ici)
 // fait quelques adaption pour le besoin de notre usage (exemple : capitalize le fullname) (à faire dans le hook de la vue ?)
 
-import {UserInfo} from '../entity/UserInfo';
 import {
   apiCallGetToken,
   apiCallGetAge,
   apiCallGetUserFullname,
-} from '../../data/data-source/api';
+} from '../../../data/data-source/api';
+import {UserInfo} from '../authenticationSlice';
 
 export class Authentication {
   signIn(login: string): {allowed: boolean; userInfo?: UserInfo} {

@@ -1,13 +1,23 @@
 import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
-import {useAuthentication} from './useAuthentication';
 
 import React from 'react';
-import {AppContext} from '../AppContext';
+import {useDispatch, useSelector} from 'react-redux';
+
+import {
+  selectIsConnected,
+  selectUserInfos,
+  signOut,
+  trySignIn,
+} from '../../domain/authentication/authenticationSlice';
 
 export function SignInForm() {
   const [login, setLogin] = React.useState('matt');
-  const {trySignIn, trySignOut} = useAuthentication();
-  const {isConnected, userInfo} = React.useContext(AppContext);
+
+  const isConnected = useSelector(selectIsConnected);
+  const userInfo = useSelector(selectUserInfos);
+
+  const dispatch = useDispatch();
+
   return (
     <View style={styles.container}>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -19,9 +29,9 @@ export function SignInForm() {
         />
       </View>
       {isConnected ? (
-        <Button title="Sign Out 🚪" onPress={() => trySignOut()} />
+        <Button title="Sign Out 🚪" onPress={() => dispatch(signOut())} />
       ) : (
-        <Button title="Sign In" onPress={() => trySignIn(login)} />
+        <Button title="Sign In" onPress={() => dispatch(trySignIn(login))} />
       )}
       <Text>{isConnected ? '🟩YOU ARE IN' : '🟥'}</Text>
       <Text />

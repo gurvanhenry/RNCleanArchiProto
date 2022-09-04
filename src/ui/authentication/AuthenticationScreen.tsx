@@ -6,11 +6,12 @@
 import React from 'react';
 
 import {View, Text, StyleSheet} from 'react-native';
-import {AppContext} from '../AppContext';
 import {SignInForm} from './SignInForm';
+import {useSelector} from 'react-redux';
+import {selectIsConnected} from '../../domain/authentication/authenticationSlice';
 
 export function AuthenticationScreen() {
-  const {isConnected} = React.useContext(AppContext);
+  const isConnected = useSelector(selectIsConnected);
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Crazy app : auth screen</Text>
