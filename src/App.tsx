@@ -2,7 +2,7 @@ import React from 'react';
 
 import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
 import {AppContextProvider} from './ui/AppContext';
-import {AuthenticationScreen} from './ui/AuthenticationScreen';
+import {AuthenticationScreen} from './ui/authentication/AuthenticationScreen';
 
 export function App() {
   return (

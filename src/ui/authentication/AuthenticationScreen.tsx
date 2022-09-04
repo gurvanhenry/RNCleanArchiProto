@@ -6,7 +6,7 @@
 import React from 'react';
 
 import {View, Text, StyleSheet} from 'react-native';
-import {AppContext} from './AppContext';
+import {AppContext} from '../AppContext';
 import {SignInForm} from './SignInForm';
 
 export function AuthenticationScreen() {

@@ -2,7 +2,7 @@ import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
 import {useAuthentication} from './useAuthentication';
 
 import React from 'react';
-import {AppContext} from './AppContext';
+import {AppContext} from '../AppContext';
 
 export function SignInForm() {
   const [login, setLogin] = React.useState('matt');

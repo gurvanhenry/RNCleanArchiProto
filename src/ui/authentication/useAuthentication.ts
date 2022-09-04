@@ -6,8 +6,8 @@
 
 import React from 'react';
 
-import {Authentication} from '../core/domain/use-case/Authentication';
-import {AppContext} from './AppContext';
+import {Authentication} from '../../core/domain/use-case/Authentication';
+import {AppContext} from '../AppContext';
 
 export function useAuthentication() {
   const {setIsConnected, setUserInfo} = React.useContext(AppContext);
