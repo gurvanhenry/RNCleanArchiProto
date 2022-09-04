@@ -2,12 +2,11 @@ import React, {useState} from 'react';
 
 import {StyleSheet, Text, TextInput, View} from 'react-native';
 
+import {signOut, trySignIn} from '~/domain/authentication/authenticationSlice';
 import {
   selectIsConnected,
   selectUserInfos,
-  signOut,
-  trySignIn,
-} from '~/domain/authentication/authenticationSlice';
+} from '~/domain/authentication/authenticationSlice.selector';
 import {Button} from '~/ui/components/Button';
 import {useDomainDispatch, useDomainSelector} from '~/ui/hook/store';
 import {Colors} from '~/ui/resources/colors';

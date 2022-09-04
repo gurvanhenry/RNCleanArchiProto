@@ -1,3 +1,6 @@
+// exemple simple qui j'ai entièrement mis dans un sclide redux
+// il exporte pour la vue : 1 action / 1 selector
+
 import {createSlice} from '@reduxjs/toolkit';
 
 import {getEmoji} from '~/data/emoji/emojiGenerator';
@@ -17,7 +20,7 @@ export const emojiSlice = createSlice({
   reducers: {
     setRamdomEmoji: state => {
       // bon ou mauvais de mettre de la logique ici ?
-      // si c'est simple ok our se forcer de faire des action séparé ?
+      // si c'est simple ok ou se forcer de faire des action séparées ?
       const newEmoji = getEmoji();
       state.emoji = newEmoji;
     },
@@ -28,4 +31,4 @@ export const {setRamdomEmoji} = emojiSlice.actions;
 
 export const selectEmoji = (state: RootState) => state.emoji.emoji;
 
-export default emojiSlice.reducer;
+export const emojiReducer = emojiSlice.reducer;

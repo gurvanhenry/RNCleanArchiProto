@@ -7,7 +7,7 @@ import React, {useEffect} from 'react';
 
 import {StyleSheet, Text, View} from 'react-native';
 
-import {selectIsConnected} from '~/domain/authentication/authenticationSlice';
+import {selectIsConnected} from '~/domain/authentication/authenticationSlice.selector';
 import {selectEmoji, setRamdomEmoji} from '~/domain/emoji/emojiSlice';
 import {useDomainDispatch, useDomainSelector} from '~/ui/hook/store';
 

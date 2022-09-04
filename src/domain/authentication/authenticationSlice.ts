@@ -1,18 +1,6 @@
 import {PayloadAction, createSlice} from '@reduxjs/toolkit';
 
-import {AppDispatch, RootState} from '~/domain/store';
-
-import {Authentication} from './service/Authentication';
-
-export type UserInfo = {
-  fullname: string;
-  age: number;
-};
-
-export interface AuthenticationState {
-  isConnected: boolean;
-  userInfo: UserInfo | undefined;
-}
+import {AuthenticationState, UserInfo} from './authenticationSlice.types';
 
 const initialState: AuthenticationState = {
   isConnected: false,
@@ -39,39 +27,4 @@ export const authenticationSlice = createSlice({
   },
 });
 
-export const {signOut} = authenticationSlice.actions;
-
-// actions :
-// ----------------------
-// ici je reçois des actions qui nécessite plus de logique que juste modifier le store avec les arguments reçus
-export const trySignIn = (login: string) => (dispatch: AppDispatch) => {
-  // timeout to simulate long call
-  setTimeout(() => {
-    const authentication = new Authentication();
-    const signInResult = authentication.signIn(login);
-    if (signInResult.allowed && signInResult.userInfo) {
-      const signIn = authenticationSlice.actions.signIn;
-      dispatch(signIn(signInResult.userInfo));
-    } else {
-      // notify error ?
-    }
-  }, 500);
-};
-
-// selectors :
-// ----------------------
-// si on veut remplacer :
-//   const isConnected = useSelector((state: RootState) => state.authentication.isConnected)
-// par
-//   const isConnected = useSelector((state: RootState) => selectIsConnected)
-//
-// au passage le compo vue qui l'utilise ne connait pas la structure interne du state. et n'import pas RootState
-//
-// ça peut aussi servir pour modifié la donné dans le selecteur avant de l'envoyé
-export const selectIsConnected = (state: RootState) =>
-  state.authentication.isConnected;
-
-export const selectUserInfos = (state: RootState) =>
-  state.authentication.userInfo;
-
-export default authenticationSlice.reducer;
+export const authenticationReducer = authenticationSlice.reducer;
