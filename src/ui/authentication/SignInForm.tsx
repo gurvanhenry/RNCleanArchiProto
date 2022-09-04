@@ -8,15 +8,15 @@ import {
   signOut,
   trySignIn,
 } from '../../domain/authentication/authenticationSlice';
-import {useReduxDispatch, useReduxSelector} from '../../domain/store';
+import {useDomainDispatch, useDomainSelector} from '../../domain/store';
 
 export function SignInForm() {
   const [login, setLogin] = useState('matt');
 
-  const isConnected = useReduxSelector(selectIsConnected);
-  const userInfo = useReduxSelector(selectUserInfos);
+  const isConnected = useDomainSelector(selectIsConnected);
+  const userInfo = useDomainSelector(selectUserInfos);
 
-  const dispatch = useReduxDispatch();
+  const dispatch = useDomainDispatch();
 
   return (
     <View style={styles.container}>

@@ -9,14 +9,14 @@ import {StyleSheet, Text, View} from 'react-native';
 
 import {selectIsConnected} from '~/domain/authentication/authenticationSlice';
 import {selectEmoji, setRamdomEmoji} from '~/domain/emoji/emojiSlice';
-import {useReduxDispatch, useReduxSelector} from '~/domain/store';
+import {useDomainDispatch, useDomainSelector} from '~/domain/store';
 
 import {SignInForm} from './SignInForm';
 
 export function AuthenticationScreen() {
-  const isConnected = useReduxSelector(selectIsConnected);
-  const emoji = useReduxSelector(selectEmoji);
-  const dispatch = useReduxDispatch();
+  const isConnected = useDomainSelector(selectIsConnected);
+  const emoji = useDomainSelector(selectEmoji);
+  const dispatch = useDomainDispatch();
 
   useEffect(() => {
     dispatch(setRamdomEmoji());
