@@ -14,8 +14,8 @@ import {
   selectUserInfos,
   signOut,
   trySignIn,
-} from '../../domain/authentication/authenticationSlice';
-import {useDomainDispatch, useDomainSelector} from '../../domain/store';
+} from '~/domain/authentication/authenticationSlice';
+import {useDomainDispatch, useDomainSelector} from '~/ui/hook/store';
 
 export function SignInForm() {
   const [login, setLogin] = useState('matt');

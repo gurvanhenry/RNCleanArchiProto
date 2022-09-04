@@ -9,7 +9,7 @@ import {StyleSheet, Text, View} from 'react-native';
 
 import {selectIsConnected} from '~/domain/authentication/authenticationSlice';
 import {selectEmoji, setRamdomEmoji} from '~/domain/emoji/emojiSlice';
-import {useDomainDispatch, useDomainSelector} from '~/domain/store';
+import {useDomainDispatch, useDomainSelector} from '~/ui/hook/store';
 
 import {SignInForm} from './SignInForm';
 
