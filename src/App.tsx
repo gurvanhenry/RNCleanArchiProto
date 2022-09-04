@@ -1,8 +1,8 @@
 import React from 'react';
 
 import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
-import {AppContextProvider} from './presentation/AppContext';
-import {AuthenticationScreen} from './presentation/AuthenticationScreen';
+import {AppContextProvider} from './ui/AppContext';
+import {AuthenticationScreen} from './ui/AuthenticationScreen';
 
 export function App() {
   return (

@@ -6,7 +6,7 @@
 
 import React from 'react';
 
-import {Authentication} from '../domain/use-case/Authentication';
+import {Authentication} from '../core/domain/use-case/Authentication';
 import {AppContext} from './AppContext';
 
 export function useAuthentication() {
