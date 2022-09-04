@@ -1,7 +1,6 @@
 import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
 
 import React from 'react';
-import {useDispatch, useSelector} from 'react-redux';
 
 import {
   selectIsConnected,
@@ -9,14 +8,15 @@ import {
   signOut,
   trySignIn,
 } from '../../domain/authentication/authenticationSlice';
+import {useReduxSelector, useReduxDispatch} from '../../domain/store';
 
 export function SignInForm() {
   const [login, setLogin] = React.useState('matt');
 
-  const isConnected = useSelector(selectIsConnected);
-  const userInfo = useSelector(selectUserInfos);
+  const isConnected = useReduxSelector(selectIsConnected);
+  const userInfo = useReduxSelector(selectUserInfos);
 
-  const dispatch = useDispatch();
+  const dispatch = useReduxDispatch();
 
   return (
     <View style={styles.container}>
