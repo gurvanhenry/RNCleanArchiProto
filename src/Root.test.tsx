@@ -1,10 +1,10 @@
 import 'react-native';
 import React from 'react';
 
-import {create} from 'react-test-renderer';
+import {render} from '@testing-library/react-native';
 
 import {Root} from './Root';
 
 it('renders correctly', () => {
-  create(<Root />);
+  render(<Root />);
 });
