@@ -1,3 +1,5 @@
+// le mock de emoji generator peut surement être remplacé par une DI du service
+
 import * as emojiGenerator from '~/data/emoji/emojiGenerator';
 import {selectEmoji, setRamdomEmoji} from '~/domain/emoji/emojiSlice';
 import {store} from '~/domain/store';
