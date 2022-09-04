@@ -35,12 +35,12 @@ android_library(
 
 android_build_config(
     name = "build_config",
-    package = "com.japp2newarchi",
+    package = "com.rncleanarchiproto",
 )
 
 android_resource(
     name = "res",
-    package = "com.japp2newarchi",
+    package = "com.rncleanarchiproto",
     res = "src/main/res",
 )
 

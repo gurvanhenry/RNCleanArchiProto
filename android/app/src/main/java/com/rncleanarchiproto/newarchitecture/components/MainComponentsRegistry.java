@@ -1,4 +1,4 @@
-package com.japp2newarchi.newarchitecture.components;
+package com.rncleanarchiproto.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

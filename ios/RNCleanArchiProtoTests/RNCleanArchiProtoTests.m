@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface japp2NewArchiTests : XCTestCase
+@interface RNCleanArchiProtoTests : XCTestCase
 
 @end
 
-@implementation japp2NewArchiTests
+@implementation RNCleanArchiProtoTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL (^)(UIView *view))test
 {
