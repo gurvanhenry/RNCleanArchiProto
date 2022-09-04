@@ -1,13 +1,6 @@
 import React, {useState} from 'react';
 
-import {
-  Button,
-  Pressable,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
+import {StyleSheet, Text, TextInput, View} from 'react-native';
 
 import {
   selectIsConnected,
@@ -15,7 +8,9 @@ import {
   signOut,
   trySignIn,
 } from '~/domain/authentication/authenticationSlice';
+import {Button} from '~/ui/components/Button';
 import {useDomainDispatch, useDomainSelector} from '~/ui/hook/store';
+import {Colors} from '~/ui/resource/colors';
 
 export function SignInForm() {
   const [login, setLogin] = useState('matt');
@@ -27,24 +22,36 @@ export function SignInForm() {
 
   return (
     <View style={styles.container}>
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        <Text>user:</Text>
-        <TextInput
-          value={login}
-          onChangeText={setLogin}
-          style={styles.textInput}
-        />
-      </View>
-      {isConnected ? (
-        <Pressable style={styles.button} onPress={() => dispatch(signOut())}>
-          <Text>Sign Out 🚪</Text>
-        </Pressable>
+      {!isConnected ? (
+        <>
+          <Button
+            title="Fill with valid user"
+            onPress={() => setLogin('matt')}
+            style={[
+              styles.smallButton,
+              {width: 160, backgroundColor: Colors.valid},
+            ]}
+          />
+          <Button
+            title="Fill with invalid user"
+            onPress={() => setLogin('unknown')}
+            style={[
+              styles.smallButton,
+              {width: 160, backgroundColor: Colors.invalid},
+            ]}
+          />
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Text>user:</Text>
+            <TextInput
+              value={login}
+              onChangeText={setLogin}
+              style={styles.textInput}
+            />
+          </View>
+          <Button title="Sign In" onPress={() => dispatch(trySignIn(login))} />
+        </>
       ) : (
-        <Pressable
-          style={styles.button}
-          onPress={() => dispatch(trySignIn(login))}>
-          <Text>Sign In</Text>
-        </Pressable>
+        <Button title="Sign Out 🚪" onPress={() => dispatch(signOut())} />
       )}
       <Text>{isConnected ? '🟩YOU ARE IN' : '🟥'}</Text>
       <Text />
@@ -69,10 +76,17 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   button: {
-    backgroundColor: '#226FF3',
+    backgroundColor: Colors.primary,
     alignItems: 'center',
     borderRadius: 20,
     padding: 10,
     margin: 10,
+  },
+  smallButton: {
+    backgroundColor: Colors.primary,
+    alignItems: 'center',
+    borderRadius: 20,
+    padding: 5,
+    margin: 5,
   },
 });
