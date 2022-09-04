@@ -1,4 +1,4 @@
-import {ApiCallGetTokenResponse} from '../model/api.types';
+import {ApiCallGetTokenResponse} from './api.types';
 import {apiCallGetToken, apiCallGetUserFullname} from './api';
 
 describe('apiCallGetToken', () => {

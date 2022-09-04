@@ -7,7 +7,7 @@ import {
   apiCallGetToken,
   apiCallGetAge,
   apiCallGetUserFullname,
-} from '../../../data/data-source/api';
+} from '../../../data/api/api';
 import {UserInfo} from '../authenticationSlice';
 
 export class Authentication {

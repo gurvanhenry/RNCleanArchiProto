@@ -1,6 +1,6 @@
 // exemple d'api qui retourne des données dans un autre format que celui désiré
 
-import {ApiCallGetTokenResponse} from '../model/api.types';
+import {ApiCallGetTokenResponse} from './api.types';
 
 export function apiCallGetToken(
   login: string,
