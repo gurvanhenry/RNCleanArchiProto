@@ -20,9 +20,7 @@ describe('authentication domain', () => {
   });
 
   describe('actions', () => {
-    // did not work with the setTimeout in inner function
-    // eslint-disable-next-line jest/no-disabled-tests
-    it.skip('trySignIn - signOut', async done => {
+    it('trySignIn - signOut', async () => {
       const login = 'matt';
       let isConnected, userInfos;
       // signin
@@ -30,35 +28,13 @@ describe('authentication domain', () => {
       isConnected = selectIsConnected(store.getState());
       userInfos = selectUserInfos(store.getState());
       expect(isConnected).toBe(true);
-      expect(userInfos).toBe({userInfo: {fullname: 'Matthiew', age: 48}});
+      expect(userInfos).toStrictEqual({fullname: 'Matthiew', age: 48});
       // signout
       await store.dispatch(signOut());
       isConnected = selectIsConnected(store.getState());
       userInfos = selectUserInfos(store.getState());
       expect(isConnected).toBe(false);
       expect(userInfos).toBe(undefined);
-      done();
     });
   });
 });
-
-/*
-
-// jest.useFakeTimers();
-// mockAuthentication();
-
-// jest.runAllTimers(); // hack to fix settimeout in auth slice // replace with mock ?
-
-function mockAuthentication() {
-  // jest.spyOn(Authentication.prototype, 'signIn').mockImplementation(() => {
-  //   return {
-  //     allowed: true,
-  //     userInfo: {
-  //       fullname: 'Matthiew',
-  //       age: 48,
-  //     },
-  //   };
-  // });
-}
-
-*/
