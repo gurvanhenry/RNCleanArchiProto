@@ -2,6 +2,7 @@ import {AnyAction, ThunkAction, configureStore} from '@reduxjs/toolkit';
 
 import {ApiWord} from '~/data/word/ApiWord';
 import {authenticationReducer} from '~/domain/authentication';
+import {colorReducer} from '~/domain/color';
 import {emojiReducer} from '~/domain/emoji';
 import {wordReducer} from '~/domain/word';
 
@@ -25,6 +26,7 @@ export const store = configureStore({
     authentication: authenticationReducer,
     emoji: emojiReducer,
     word: wordReducer,
+    color: colorReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
