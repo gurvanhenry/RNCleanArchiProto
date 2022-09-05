@@ -7,12 +7,13 @@ describe('apiWord - getRandomWord', () => {
     expect(word).toBe(testWord);
   });
 
-  it('network error', async () => {
-    // try {
-    //   await ApiWord.getRandomWord();
-    // } catch (error) {
-    //   expect(error).toEqual({error: 'Network Error'});
-    // }
+  // eslint-disable-next-line jest/no-disabled-tests
+  it.skip('network error', async () => {
+    try {
+      await ApiWord.getRandomWord();
+    } catch (error) {
+      expect(error).toEqual({error: 'Network Error'});
+    }
   });
 });
 
