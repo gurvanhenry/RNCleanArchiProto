@@ -1,5 +1,6 @@
-// dans cet exemple ApiWord est injecté à la déclaration du store
+// dans cet exemple ApiWord est injecté dans extraArgument à la déclaration du store
 // see https://redux.js.org/usage/writing-logic-thunks#injecting-config-values-into-thunks
+// ça peut permettre de le remplacer dans les tests. exemple redux-clean-example/examples/counter/src/app/use-cases/counter.test.ts
 
 import {AppDispatch, AppThunk} from '~/domain/store';
 
