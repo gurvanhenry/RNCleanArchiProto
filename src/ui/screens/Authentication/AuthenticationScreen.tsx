@@ -11,6 +11,7 @@ import {selectIsConnected} from '~/domain/authentication';
 import {selectEmoji, setRamdomEmoji} from '~/domain/emoji';
 import {useAppDispatch, useAppSelector} from '~/ui/hook/store';
 
+import {RandomColor} from './RandomColor';
 import {RandomWord} from './RandomWord';
 import {SignInForm} from './SignInForm';
 
@@ -32,6 +33,7 @@ export function AuthenticationScreen() {
       </Text>
       <SignInForm />
       <RandomWord />
+      <RandomColor />
     </View>
   );
 }
