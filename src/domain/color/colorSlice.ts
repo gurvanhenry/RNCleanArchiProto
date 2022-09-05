@@ -37,3 +37,6 @@ export const fetchAndSetColor = () => async (dispatch: AppDispatch) => {
   dispatch(colorSlice.actions.setColor(color));
   dispatch(colorSlice.actions.setLoading(false));
 };
+
+// loading and error could be done with createAsyncThunk
+// https://redux-toolkit.js.org/api/createAsyncThunk
