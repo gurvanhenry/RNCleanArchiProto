@@ -2,12 +2,13 @@ import React, {useEffect} from 'react';
 
 import {StyleSheet, Text, View} from 'react-native';
 
-import {fetchAndSetColor, selectColor} from '~/domain/color';
+import {fetchAndSetColor, selectColor, selectLoading} from '~/domain/color';
 import {Button} from '~/ui/components/Button';
 import {useAppDispatch, useAppSelector} from '~/ui/hook/store';
 
 export function RandomColor() {
   const color = useAppSelector(selectColor);
+  const loading = useAppSelector(selectLoading);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -16,8 +17,17 @@ export function RandomColor() {
 
   return (
     <View style={styles.container}>
-      <Text style={{backgroundColor: color}}>random color</Text>
-      <Button title="refresh" onPress={() => dispatch(fetchAndSetColor())} />
+      {!loading ? (
+        <>
+          <Text style={{backgroundColor: color}}>random color</Text>
+          <Button
+            title="refresh"
+            onPress={() => dispatch(fetchAndSetColor())}
+          />
+        </>
+      ) : (
+        <Text>LOADING...</Text>
+      )}
     </View>
   );
 }
@@ -25,7 +35,9 @@ export function RandomColor() {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#CCC',
-    padding: 10,
+    height: 80,
+    width: 200,
   },
 });
