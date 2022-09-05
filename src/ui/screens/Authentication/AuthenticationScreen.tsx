@@ -9,15 +9,15 @@ import {StyleSheet, Text, View} from 'react-native';
 
 import {selectIsConnected} from '~/domain/authentication';
 import {selectEmoji, setRamdomEmoji} from '~/domain/emoji';
-import {useDomainDispatch, useDomainSelector} from '~/ui/hook/store';
+import {useAppDispatch, useAppSelector} from '~/ui/hook/store';
 
 import {RandomWord} from './RandomWord';
 import {SignInForm} from './SignInForm';
 
 export function AuthenticationScreen() {
-  const isConnected = useDomainSelector(selectIsConnected);
-  const emoji = useDomainSelector(selectEmoji);
-  const dispatch = useDomainDispatch();
+  const isConnected = useAppSelector(selectIsConnected);
+  const emoji = useAppSelector(selectEmoji);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(setRamdomEmoji());

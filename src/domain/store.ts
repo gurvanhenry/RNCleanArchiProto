@@ -39,3 +39,4 @@ export type AppDispatch = typeof store.dispatch;
 
 // je n'ai pas utilisé createAsyncThunk (https://redux.js.org/usage/writing-logic-thunks#using-createasyncthunk)
 // pour avoir 3 états : pending, fulfilled, and rejected
+// bon exemple : redux-clean-example/examples/counter/src/app/use-cases/counter.ts

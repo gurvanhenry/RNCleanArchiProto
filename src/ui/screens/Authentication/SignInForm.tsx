@@ -9,16 +9,16 @@ import {
   trySignIn,
 } from '~/domain/authentication';
 import {Button} from '~/ui/components/Button';
-import {useDomainDispatch, useDomainSelector} from '~/ui/hook/store';
+import {useAppDispatch, useAppSelector} from '~/ui/hook/store';
 import {Colors} from '~/ui/resources/colors';
 
 export function SignInForm() {
   const [login, setLogin] = useState('matt');
 
-  const isConnected = useDomainSelector(selectIsConnected);
-  const userInfo = useDomainSelector(selectUserInfos);
+  const isConnected = useAppSelector(selectIsConnected);
+  const userInfo = useAppSelector(selectUserInfos);
 
-  const dispatch = useDomainDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <View style={styles.container}>

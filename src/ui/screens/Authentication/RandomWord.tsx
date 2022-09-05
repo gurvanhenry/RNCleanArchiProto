@@ -4,11 +4,11 @@ import {StyleSheet, Text, View} from 'react-native';
 
 import {fetchAndSetWord, selectWord} from '~/domain/word';
 import {Button} from '~/ui/components/Button';
-import {useDomainDispatch, useDomainSelector} from '~/ui/hook/store';
+import {useAppDispatch, useAppSelector} from '~/ui/hook/store';
 
 export function RandomWord() {
-  const word = useDomainSelector(selectWord);
-  const dispatch = useDomainDispatch();
+  const word = useAppSelector(selectWord);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchAndSetWord());
