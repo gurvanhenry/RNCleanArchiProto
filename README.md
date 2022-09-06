@@ -1,4 +1,4 @@
-# rn-clean-archi-proto
+# RNCleanArchiProto
 
 Sandbox project to try new code structure. Inspired by clean architecture.
 
